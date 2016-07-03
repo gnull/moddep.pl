@@ -13,14 +13,14 @@ chomp(my $prog = `basename $0`);
 
 my $usage = << "STOP";
 
+$prog - build dependency graph of specified linux kernel modules.
+
 USAGE:
     $prog [OPTIONS] path/to/module1.ko /path/to/module2.ko ...
 
-Build dependency graph of specified linux kernel modules. The directed graph is
-printed to STDOUT in the form suitable for `dot`.
-
-If multiple modules with the same name are given only the first is processed
-others are ignored. E.g calling:
+The directed graph is printed to STDOUT in the form suitable for `dot`.  If
+multiple modules with the same name are given only the first is processed others
+are ignored. E.g calling:
 
   $prog a/x.ko b/x.ko
 
@@ -30,6 +30,16 @@ OPTIONS:
   --modinfo, -m      modinfo location, defaults to `/sbin/modinfo`
   --verbose, -v      print additional info
   --help, h          show this help
+
+EXAMPLES:
+
+  Show graph of all modules in subdirectories of current directory:
+
+    $prog -v `find -name \*.ko` | dot -Tx11
+
+  She same but saving graph to graph.png:
+
+    $prog -v `find -name \*.ko` | dot -Tpng -o graph.png
 
 STOP
 
