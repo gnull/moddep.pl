@@ -99,4 +99,4 @@ sub main {
 
 print "digraph G {\n";
 main;
-print "};\n"
+print "}\n"
