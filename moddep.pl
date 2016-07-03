@@ -74,7 +74,7 @@ sub main {
 
     verb "Assuming modinfo is at $modinfo";
 
-    my @mods = uniq @ARGV;
+    my @mods = uniq sort @ARGV;
 
     verb "Modules to be searched are: @mods";
 
