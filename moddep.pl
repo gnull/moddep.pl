@@ -78,7 +78,7 @@ sub main {
 	chomp($deps);
 	verb "$modname depends on $deps";
 
-	print qq/$modname [fillcolor=blue]/;
+	print qq/$modname [fillcolor=turquoise, style=filled]/;
 
 	print $modname, $_
 	    for (split /,/, $deps);
